@@ -1,0 +1,15 @@
+{% extends 'myfinalweb/base.html' %}
+
+{% block content %}
+
+    <p>Topics</p>
+    <ul>
+        {% for topic in topics %}
+            <li>
+                <a href="{% url 'myfinalweb:topic' topic.id %}">
+                {{ topic.text }}</a></li>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'myfinalweb:new_topic' %}">Add a new topic</a>
+{% endblock content %}
