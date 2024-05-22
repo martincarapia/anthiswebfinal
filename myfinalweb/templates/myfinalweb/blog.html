@@ -11,8 +11,9 @@
     {% for entry in entries %}
         <div class="card mb-3">
             <!-- Card header with timestamp and edit link -->
-            <h4 class="card-header"> 
-                {{ entry.date_added|date:'M d, Y H:i' }}
+            <h4 class="card-header">
+                Post by {{ entry.owner }} created {{ entry.date_added|date:'M d, Y H:i' }}
+                
                 <small><a href="{% url 'myfinalweb:edit_entry' entry.id %}"> edit post</a></small> 
             </h4>
             <!-- Card body with entry text -->

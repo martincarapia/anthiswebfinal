@@ -18,6 +18,7 @@ class Entry(models.Model):
     # entry_user_id = User.get_username
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     class Meta:
         verbose_name_plural = 'entries'
     def __str__(self):
