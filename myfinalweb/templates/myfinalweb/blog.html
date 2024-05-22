@@ -4,23 +4,28 @@
     <h1>Welcome to the blog!</h1>
 {% endblock page_header %}
 
-{% block content %} 
+{% block content %}
     <p>
-        <a href="{% url 'myfinalweb:new_entry'%}">Add new post</a> 
+        <a href="{% url 'myfinalweb:new_entry' %}" class="btn btn-primary">Add new post</a>
     </p>
-    {% for entry in entries %}
-        <div class="card mb-3">
-            <!-- Card header with timestamp and edit link -->
-            <h4 class="card-header">
-                Post by {{ entry.owner }} created {{ entry.date_added|date:'M d, Y H:i' }}
-                
-                <small><a href="{% url 'myfinalweb:edit_entry' entry.id %}"> edit post</a></small> 
-            </h4>
-            <!-- Card body with entry text -->
-            <div class="card-body">{{ entry.text|linebreaks }}</div>
-        </div> 
-    {% empty %}
-        <p>Blog is empty... Add a post!</p> 
-    {% endfor %}
-    
+    <div class="row">
+        {% for entry in entries %}
+            <div class="col-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ entry.title }}</h5>
+                        <p class="card-text">{{ entry.text|truncatechars:200 }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">
+                            Post by {{ entry.owner }} | Created {{ entry.date_added|date:'M d, Y H:i' }}
+                            <a href="{% url 'myfinalweb:edit_entry' entry.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No posts yet.</p>
+        {% endfor %}
+    </div>
 {% endblock content %}
