@@ -1,13 +1,31 @@
 {% extends 'myfinalweb/base.html' %}
 
-{% block content %}
-    <div>
+{% block page_header %}
+    <body>
         <div>
-            <h1 class="label label-default">Martin M. Carapia</h1>
-            <p>
-                testing testing
-            </p>
+            <div>
+                <h1 class="label label-default">Martin M. Carapia</h1>
+                <p>
+                    <!-- THIS NEEDS RESIZED -->
+                    <img src="../../static/images/thisisme.jpeg" alt="HTML5 Icon" style="width:128px;height:128px;">
+                    <br>
+                    Above image you see is me
+                    <br>
+                    My name is Martin Mizner Carapia, I'm a student in Alex Mckinstry's 
+                    software development course at Anthis Career Academy.
+                    Checkout the blog. There's lots of cool stuff there like projects I've done in this class.
+                </p>
+            </div>
+            <div>
+                <p>
+                    Here is my graph of growth
+                </p>
+                <div>
+                    <!-- Inject the Plotly chart HTML here -->
+                </div>
+            </div>
         </div>
-    </div>
+    </body>
     
-{% endblock content %}
+    
+{% endblock page_header %}
