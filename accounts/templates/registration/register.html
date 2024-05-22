@@ -1,9 +1,9 @@
 {% extends "myfinalweb/base.html" %}
-{% block content %}
+{% block page_header %}
     <form action="{% url 'accounts:register' %}" method='post'>
         {% csrf_token %}
         {{ form.as_div }}
         
         <button name="submit">Register</button>
     </form>
-{% endblock content %}
+{% endblock page_header %}
