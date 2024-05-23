@@ -14,7 +14,17 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ entry.title }}</h5>
-                        <p class="card-text">{{ entry.text|truncatechars:200 }}</p>
+                        {% if entry.text|length > 200 %}
+                            <p class="card-text">
+                                {{ entry.text|slice:":200" }}...
+                                <span id="more-{{ forloop.counter }}" class="collapse">{{ entry.text|slice:"200:" }}</span>
+                            </p>
+                            <button class="btn btn-link p-0" data-bs-toggle="collapse" data-bs-target="#more-{{ forloop.counter }}">
+                                Read more
+                            </button>
+                        {% else %}
+                            <p class="card-text">{{ entry.text }}</p>
+                        {% endif %}
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">
