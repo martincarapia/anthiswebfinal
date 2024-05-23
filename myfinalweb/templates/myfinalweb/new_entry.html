@@ -1,11 +1,21 @@
 {% extends "myfinalweb/base.html" %}
-{% block content %}
 
-    <p>Add a new entry:</p>
-    <form action="{% url 'myfinalweb:new_entry'%}" method='post'>
-        {% csrf_token %}
-        {{ form.as_div }}
-        <button name='submit'>Add entry</button>
-    </form>
-    
+{% block content %}
+    <h2>Add a New Entry</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="{% url 'myfinalweb:new_entry'%}" method='post'>
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.title.label_tag }}
+                    {{ form.title }}
+                </div>
+                <div class="mb-3">
+                    {{ form.text.label_tag }}
+                    {{ form.text }}
+                </div>
+                <button type='submit' class="btn btn-primary">Add Entry</button>
+            </form>
+        </div>
+    </div>
 {% endblock content %}
