@@ -1,7 +1,7 @@
 # You must create your own Virtual Environment
 
 ```shell
-python -m venv virtualenvironmentname
+python -m venv venv
 ```
 
 Activate your environment
@@ -9,13 +9,13 @@ Activate your environment
 ## MacOS and Linux
 
 ```shell
-source virtualenvironmentname/bin/activate
+source venv/bin/activate
 ```
 
 ## Windows
 
 ```shell
-virtualenvironmentname\Scripts\activate
+venv\Scripts\activate
 ```
 
 Note: you may have to run
@@ -24,10 +24,11 @@ Note: you may have to run
 Set-ExecutionPolicy RemoteSigned
 ```
 
-in order to allow the virtual environment script to run on Windows.
+to allow the virtual environment script to run on Windows.
 \
 then install dependencies
 
 ```shell
-pip install django && pip install django-bootstrap5
+pip install django
+pip install django-bootstrap5
 ```
